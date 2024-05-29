@@ -1,7 +1,8 @@
-FROM node:18.20.3
-WORKDIR /app
-ENV PORT=3000
-COPY . .
+FROM node:18
+WORKDIR /usr/src/app
+COPY package*.json ./
 RUN npm install
-EXPOSE 3000
+COPY . .
+ENV PORT=3000
+ENV MODEL_URL='https://storage.googleapis.com/mlgc-bucket-ridwanrasyid/model-in-prod/model.json'
 CMD ["npm", "run", "start"]
