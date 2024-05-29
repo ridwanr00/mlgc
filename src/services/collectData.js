@@ -4,7 +4,7 @@ async function collectData() {
     const db = new Firestore({
         projectId: 'submissionmlgc-ridwanrasyid'
     })
-    const predictionRef = db.collection('prediction')
+    const predictionRef = db.collection('predictions')
     const snapshot = await predictionRef.get()
     const history = snapshot.docs.map((doc) => {
         return {
